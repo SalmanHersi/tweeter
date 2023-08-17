@@ -1,0 +1,21 @@
+header {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #4056a1;
+  background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+header img {
+  height: auto;
+  max-width: 150px;
+  margin-top: 12rem;
+}
+
+header h2 {
+  margin-top: 10px;
+  color: #ffff;
+}
