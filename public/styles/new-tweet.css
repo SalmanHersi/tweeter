@@ -45,3 +45,14 @@
   display: inline-block;
   text-align: left;
 }
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  display: none;
+}
+
+.counter.invalid {
+  color: red;
+}
