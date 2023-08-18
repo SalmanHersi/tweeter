@@ -1,12 +1,5 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 $(document).ready(function () {
   const maxCharCount = 140;
-
   const renderTweets = function (tweets) {
     const $tweetsContainer = $(".tweets-container");
     $tweetsContainer.empty();
@@ -29,7 +22,7 @@ $(document).ready(function () {
         </header>
         <div class="content">${tweet.content.text}</div>
         <footer>
-          <span class="timestamp">${tweet.created_at}</span>
+          <span class="timestamp">${timeago.format(tweet.created_at)}</span>
           <div class="icons">
             <i class="fas fa-flag"></i>
             <i class="fas fa-retweet"></i>
@@ -42,35 +35,35 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  const $tweetForm = $("#tweet-form"); // Target the form
+  const $tweetForm = $("#tweet-form");
   const $errorMessage = $(".error-message");
 
   $tweetForm.on("submit", function (event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault();
 
-    const tweetLength = $tweetForm.find("textarea").val().trim().length;
+    const tweetText = $tweetForm.find("textarea").val().trim();
 
-    if (tweetLength === 0) {
-      $errorMessage.text("Tweet cannot be empty.");
-      $errorMessage.slideDown();
-      return; // Exit the submit handler
-    } else if (tweetLength > maxCharCount) {
-      $errorMessage.text("Tweet is too long.");
-      $errorMessage.slideDown();
-      return; // Exit the submit handler
+    if (tweetText === "") {
+      showError("Tweet cannot be empty.");
+      return;
     }
 
-    // Serialize the form data
+    if (tweetText.length > maxCharCount) {
+      showError("Tweet is too long.");
+      return;
+    }
+
+    clearError();
+
     const formData = $(this).serialize();
 
-    // Send the AJAX POST request
     $.ajax({
       url: "/tweets",
       method: "POST",
       data: formData,
       success: function () {
-        // Once the data is sent successfully, fetch the updated tweets and render them
         loadTweets();
+        $tweetForm.find("textarea").val("");
       },
       error: function (error) {
         console.error("Error submitting tweet:", error);
@@ -78,7 +71,15 @@ $(document).ready(function () {
     });
   });
 
-  // Helper function to fetch and render tweets
+  const showError = function (message) {
+    $errorMessage.text(message);
+    $errorMessage.slideDown();
+  };
+
+  const clearError = function () {
+    $errorMessage.hide().empty();
+  };
+
   const loadTweets = function () {
     $.ajax({
       url: "/tweets",
@@ -93,13 +94,10 @@ $(document).ready(function () {
     });
   };
 
-  // Load tweets when the page loads
-  loadTweets();
-
-  // Display the time passed since a Tweet was created using timeago.js
-  const timeAgoInstance = timeago();
   $(".timestamp").each(function () {
     const created_at = $(this).text();
     $(this).text(timeAgoInstance.format(created_at));
   });
+
+  loadTweets();
 });
