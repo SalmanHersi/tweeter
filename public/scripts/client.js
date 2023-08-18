@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
-      $tweetsContainer.append($tweet);
+      $tweetsContainer.prepend($tweet);
     }
   };
 
