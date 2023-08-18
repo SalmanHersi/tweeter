@@ -5,18 +5,15 @@
  */
 
 $(document).ready(function () {
+  const maxCharCount = 140;
+
   const renderTweets = function (tweets) {
     const $tweetsContainer = $(".tweets-container");
-    console.log("check");
-    console.log(tweets);
-    // Empty the container to avoid duplicate rendering
     $tweetsContainer.empty();
 
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
-      console.log($tweet);
       $tweetsContainer.append($tweet);
-      console.log($tweetsContainer);
     }
   };
 
@@ -45,30 +42,57 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  const data = [
-    {
-      user: {
-        name: "Newton",
-        avatars: "https://i.imgur.com/73hZDYK.png",
-        handle: "@SirIsaac",
-      },
-      content: {
-        text: "If I have seen further it is by standing on the shoulders of giants",
-      },
-      created_at: 1461116232227,
-    },
-    {
-      user: {
-        name: "Descartes",
-        avatars: "https://i.imgur.com/nlhLi3I.png",
-        handle: "@rd",
-      },
-      content: {
-        text: "Je pense , donc je suis",
-      },
-      created_at: 1461113959088,
-    },
-  ];
+  const $tweetForm = $("#tweet-form"); // Target the form
+  const $errorMessage = $(".error-message");
 
-  renderTweets(data);
+  $tweetForm.on("submit", function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const tweetLength = $tweetForm.find("textarea").val().trim().length;
+
+    if (tweetLength === 0) {
+      $errorMessage.text("Tweet cannot be empty.");
+      $errorMessage.slideDown();
+      return; // Exit the submit handler
+    } else if (tweetLength > maxCharCount) {
+      $errorMessage.text("Tweet is too long.");
+      $errorMessage.slideDown();
+      return; // Exit the submit handler
+    }
+
+    // Serialize the form data
+    const formData = $(this).serialize();
+
+    // Send the AJAX POST request
+    $.ajax({
+      url: "/tweets",
+      method: "POST",
+      data: formData,
+      success: function () {
+        // Once the data is sent successfully, fetch the updated tweets and render them
+        loadTweets();
+      },
+      error: function (error) {
+        console.error("Error submitting tweet:", error);
+      },
+    });
+  });
+
+  // Helper function to fetch and render tweets
+  const loadTweets = function () {
+    $.ajax({
+      url: "/tweets",
+      method: "GET",
+      dataType: "json",
+      success: function (tweets) {
+        renderTweets(tweets);
+      },
+      error: function (error) {
+        console.error("Error fetching tweets:", error);
+      },
+    });
+  };
+
+  // Load tweets when the page loads
+  loadTweets();
 });
