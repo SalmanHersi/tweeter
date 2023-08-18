@@ -11,26 +11,39 @@ $(document).ready(function () {
   };
 
   const createTweetElement = function (tweet) {
-    const $tweet = $(`
-      <article class="tweet">
-        <header>
-          <div class="user">
-            <img src="${tweet.user.avatars}" alt="${tweet.user.name}" />
-            <span class="name">${tweet.user.name}</span>
-          </div>
-          <span class="handle">${tweet.user.handle}</span>
-        </header>
-        <div class="content">${tweet.content.text}</div>
-        <footer>
-          <span class="timestamp">${timeago.format(tweet.created_at)}</span>
-          <div class="icons">
-            <i class="fas fa-flag"></i>
-            <i class="fas fa-retweet"></i>
-            <i class="fas fa-heart"></i>
-          </div>
-        </footer>
-      </article>
-    `);
+    // Create the main tweet article
+    const $tweet = $("<article>").addClass("tweet");
+
+    // Header section
+    const $header = $("<header>");
+    const $userDiv = $("<div>").addClass("user");
+    const $userImg = $("<img>")
+      .attr("src", tweet.user.avatars)
+      .attr("alt", tweet.user.name);
+    const $userName = $("<span>").addClass("name").text(tweet.user.name);
+    const $userHandle = $("<span>").addClass("handle").text(tweet.user.handle);
+
+    $userDiv.append($userImg, $userName);
+    $header.append($userDiv, $userHandle);
+
+    // Content section
+    const $content = $("<div>").addClass("content").text(tweet.content.text);
+
+    // Footer section
+    const $footer = $("<footer>");
+    const $timestamp = $("<span>")
+      .addClass("timestamp")
+      .text(timeago.format(tweet.created_at));
+    const $iconsDiv = $("<div>").addClass("icons");
+    const $flagIcon = $("<i>").addClass("fas fa-flag");
+    const $retweetIcon = $("<i>").addClass("fas fa-retweet");
+    const $heartIcon = $("<i>").addClass("fas fa-heart");
+
+    $iconsDiv.append($flagIcon, $retweetIcon, $heartIcon);
+    $footer.append($timestamp, $iconsDiv);
+
+    // Combine everything
+    $tweet.append($header, $content, $footer);
 
     return $tweet;
   };
