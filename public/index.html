@@ -62,7 +62,7 @@
 
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
-      <form action="tweet" method="POST">
+      <form action="tweet" method="POST" id="tweet-form">
         <div class="tweet-section">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
@@ -72,7 +72,7 @@
       </form>
       <div class="error-message" style="display: none"></div>
     </section>
-    <section class="tweet-container">
+    <section class="tweets-container">
       <article class="tweet">
         <div class="tweet-header">
           <img src="/images/profile-hex.png" alt="User Avatar" />
