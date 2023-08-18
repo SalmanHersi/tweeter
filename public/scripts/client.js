@@ -95,4 +95,11 @@ $(document).ready(function () {
 
   // Load tweets when the page loads
   loadTweets();
+
+  // Display the time passed since a Tweet was created using timeago.js
+  const timeAgoInstance = timeago();
+  $(".timestamp").each(function () {
+    const created_at = $(this).text();
+    $(this).text(timeAgoInstance.format(created_at));
+  });
 });
