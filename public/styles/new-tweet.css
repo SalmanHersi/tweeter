@@ -32,11 +32,14 @@
 }
 .tweet-section textarea {
   display: block;
-  width: 60%;
+  width: 70%;
+  background-color: #f4f1ec;
+  margin: 0 auto;
+  border: none;
 }
 
 .new-tweet button {
-  font-family: "Source Sans 3", sans-serif;
+  font-family: "Bungee";
   background-color: #4056a1;
   color: white;
   padding: 0.4rem 1.4rem;

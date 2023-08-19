@@ -31,6 +31,12 @@ main {
   background-color: #f4f1ec;
 }
 
+.counter {
+  font-family: "Bungee";
+}
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+/* For tablets (601px to 1024px) */

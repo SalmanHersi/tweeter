@@ -19,6 +19,10 @@ nav span {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0;
-  margin: 0;
+  padding: 1rem;
+  line-height: 1px;
+}
+
+.tweet_icon a {
+  line-height: 0;
 }

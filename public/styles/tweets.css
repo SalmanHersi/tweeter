@@ -1,63 +1,20 @@
-/* tweets.css */
-
-.tweet-container {
-  /* This container doesn't require specific styling */
-  max-width: 70%;
-  max-height: 300px;
-  margin: 0 auto;
-}
-
 .tweet {
-  border: 1px solid #e1e8ed;
-  margin-bottom: 15px;
-  padding: 10px;
+  border: 2px solid black;
+
+  padding: 15px;
   border-radius: 10px;
   transition: box-shadow 0.3s;
-  margin: 0 auto;
+  margin: 2rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  text-align: left;
 }
 
 .tweet:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 13px rgba(0, 0, 0, 0.2);
 }
 
-.tweet-header {
-  display: flex;
-  align-items: center;
-}
-
-.tweet-header img {
-  max-width: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.tweet-header h3 {
-  font-size: 1rem;
-  margin: 0;
-}
-
-.tweet-content p {
-  margin: 10px 0;
-}
-
-.tweet-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #8899a6;
-}
-
-.tweet-icons {
-  display: flex;
-  align-items: center;
-}
-
-.tweet-icons i {
-  margin-right: 10px;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.tweet-icons i:hover {
-  color: #1da1f2;
+.tweets-container {
 }
