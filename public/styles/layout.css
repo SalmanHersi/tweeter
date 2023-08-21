@@ -68,3 +68,8 @@ main {
     top: 370px;
   }
 }
+
+.icon-right {
+  float: right;
+  margin: 0 1rem;
+}
