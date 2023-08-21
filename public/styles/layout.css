@@ -35,8 +35,29 @@ main {
   font-family: "Bungee";
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+/* @media screen and (max-width: 768px) {
+  .responsive_container {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    flex-wrap: wrap;
+    gap: 3rem;
+    max-width: 90%;
+    height: 100vh;
+  }
+} */
 
-/* For tablets (601px to 1024px) */
+.responsive_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: none;
+}
+
+@media screen and (max-width: 1300px) {
+  .responsive_container {
+    display: flex;
+    flex-direction: column;
+  }
+}
