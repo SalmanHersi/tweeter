@@ -17,5 +17,7 @@ This repository is the starter code for the project: Students will fork and clon
 - Express
 - Node 5.10.x or above
 
-!['Screenshot of tweet compose box"](public/screenshots/CleanShot 2023-08-21 at 11.04.42@2x.png)
-!["Screenshot of tweets"](public/screenshots/CleanShot 2023-08-21 at 11.04.52@2x.png)
+## Screenshots
+
+![preview](/public/screenshots/CleanShot%202023-08-21%20at%2011.04.42@2x.png)
+![preview2](/public/screenshots/CleanShot%202023-08-21%20at%2011.04.52@2x.png)
