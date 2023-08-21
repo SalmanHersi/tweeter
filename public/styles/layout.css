@@ -61,3 +61,10 @@ main {
     flex-direction: column;
   }
 }
+
+@media screen and (min-width: 1300px) {
+  .tweets-container {
+    position: relative;
+    top: 370px;
+  }
+}
