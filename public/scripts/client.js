@@ -35,9 +35,9 @@ $(document).ready(function () {
       .addClass("timestamp")
       .text(timeago.format(tweet.created_at));
     const $iconsDiv = $("<div>").addClass("icons");
-    const $flagIcon = $("<i>").addClass("fas fa-flag icon-right");
     const $retweetIcon = $("<i>").addClass("fas fa-retweet icon-right");
     const $heartIcon = $("<i>").addClass("fas fa-heart icon-right");
+    const $flagIcon = $("<i>").addClass("fas fa-flag icon-right");
 
     $iconsDiv.append($flagIcon, $retweetIcon, $heartIcon);
     $footer.append($timestamp, $iconsDiv);

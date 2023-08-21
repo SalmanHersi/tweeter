@@ -19,3 +19,7 @@
 .tweets-container {
   padding: 1rem;
 }
+
+.fas:hover {
+  color: blue;
+}
