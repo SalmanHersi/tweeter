@@ -22,4 +22,12 @@
 
 .fas:hover {
   color: blue;
+  cursor: pointer;
+}
+
+.tweet_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }

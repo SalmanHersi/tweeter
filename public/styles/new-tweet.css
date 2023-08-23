@@ -20,10 +20,6 @@
 }
 
 .tweet-section label {
-  margin-bottom: 1rem;
-  text-align: left;
-  border-bottom: 2px solid grey;
-  width: 60%;
 }
 
 .tweet-section input {
@@ -36,6 +32,10 @@
   background-color: #f4f1ec;
   margin: 0 auto;
   border: none;
+  margin-bottom: 1rem;
+  text-align: left;
+  border-bottom: 4px solid grey;
+  width: 60%;
 }
 
 .new-tweet button {

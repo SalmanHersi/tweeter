@@ -15,7 +15,7 @@ $(document).ready(function () {
     const $tweet = $("<article>").addClass("tweet");
 
     // Header section
-    const $header = $("<header>");
+    const $header = $("<header>").addClass("tweet_header");
     const $userDiv = $("<div>").addClass("user");
     const $userImg = $("<img>")
       .attr("src", tweet.user.avatars)

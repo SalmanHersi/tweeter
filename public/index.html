@@ -51,30 +51,34 @@
       </div>
     </nav>
     <div class="responsive_container">
-      <div class="header_tweets">
-        <header class="main_header">
-          <div>
-            <img src="/images/profile-hex.png" />
-          </div>
-          <br />
-          <div>
-            <h2>Salman</h2>
-          </div>
-        </header>
+      <header class="main_header">
+        <div>
+          <img src="/images/profile-hex.png" />
+        </div>
+        <br />
+        <div>
+          <h2>Salman</h2>
+        </div>
+      </header>
+      <div class="new_tweets_container">
         <section class="new-tweet">
           <h2>Compose Tweet</h2>
           <form action="tweet" method="POST" id="tweet-form">
             <div class="tweet-section">
-              <label for="tweet-text">What are you humming about?</label>
-              <textarea name="text" id="tweet-text"></textarea>
+              <!-- <label for="tweet-text">What are you humming about?</label> -->
+              <textarea
+                name="text"
+                id="tweet-text"
+                placeholder="What are you humming about?"
+              ></textarea>
             </div>
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </form>
           <div class="error-message" style="display: none"></div>
         </section>
+        <section class="tweets-container"></section>
       </div>
-      <section class="tweets-container"></section>
     </div>
 
     <!-- Section for posting tweets -->

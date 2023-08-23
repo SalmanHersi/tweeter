@@ -64,12 +64,16 @@ main {
 
 @media screen and (min-width: 1300px) {
   .tweets-container {
-    position: relative;
-    top: 370px;
   }
 }
 
 .icon-right {
   float: right;
   margin: 0 1rem;
+}
+
+.new_tweets_container {
+  @media screen and (min-width: 1300px) {
+    margin-top: 120px;
+  }
 }

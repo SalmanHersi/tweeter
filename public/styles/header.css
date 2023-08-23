@@ -10,15 +10,22 @@
   background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   background-size: cover;
+  margin-top: 7rem;
+
+  @media screen and (min-width: 1300px) {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 200px;
+  }
 }
 .main_header img {
   height: auto;
-  max-width: 150px;
+  max-width: 250px;
   margin-top: 12rem;
 }
 
 .main_header h2 {
   margin-top: 10px;
   color: white;
-  margin-bottom: 4rem;
+  margin-bottom: 10rem;
 }
