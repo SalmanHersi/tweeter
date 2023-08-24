@@ -4,8 +4,9 @@ $(document).ready(function () {
   const $charCounter = $tweetTextarea.parent().siblings().last();
   const $errorMessage = $(".error-message");
 
-  $tweetTextarea.on("input", function () {
-    const charCount = $(this).val().length;
+  // This function updates the counter and applies styling based on the count
+  function updateCharCounter() {
+    const charCount = $tweetTextarea.val().length;
     const charsLeft = maxCharCount - charCount;
     $charCounter.text(charsLeft);
 
@@ -14,6 +15,10 @@ $(document).ready(function () {
     } else {
       $charCounter.removeClass("invalid");
     }
+  }
+
+  $tweetTextarea.on("input", function () {
+    updateCharCounter();
   });
 
   $(".new-tweet form").on("submit", function (event) {
@@ -29,7 +34,10 @@ $(document).ready(function () {
       $errorMessage.slideDown();
     } else {
       $errorMessage.slideUp(function () {
-        // Perform actual tweet submission here
+        // Assuming you'll add AJAX request here to submit the tweet
+        // After successful submission, reset the textarea and counter
+        $tweetTextarea.val(""); // Clear the textarea
+        updateCharCounter(); // Reset the character count display
       });
     }
   });
