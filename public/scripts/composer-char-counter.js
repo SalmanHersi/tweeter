@@ -33,12 +33,8 @@ $(document).ready(function () {
       $errorMessage.text("Tweet is too long.");
       $errorMessage.slideDown();
     } else {
-      $errorMessage.slideUp(function () {
-        // Assuming you'll add AJAX request here to submit the tweet
-        // After successful submission, reset the textarea and counter
-        $tweetTextarea.val(""); // Clear the textarea
-        updateCharCounter(); // Reset the character count display
-      });
+      $errorMessage.slideUp();
+      $charCounter.text(140);
     }
   });
 });
