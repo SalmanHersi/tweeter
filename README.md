@@ -21,5 +21,6 @@ Tweeter is a simple, single-page Twitter clone.
 
 ## Screenshots
 
-![preview](/public/screenshots/CleanShot%202023-08-21%20at%2011.04.42@2x.png)
-![preview2](/public/screenshots/CleanShot%202023-08-21%20at%2011.04.52@2x.png)
+![preview](/public/screenshots/screenshot1.png)
+![preview](/public/screenshots/screenshot2.png)
+![preview](/public/screenshots/screenshot3.png)
