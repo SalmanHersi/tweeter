@@ -26,3 +26,8 @@ nav span {
 .tweet_icon a {
   line-height: 0;
 }
+
+.fa-angle-double-down:before,
+.fa-angles-down:before {
+  color: red;
+}
